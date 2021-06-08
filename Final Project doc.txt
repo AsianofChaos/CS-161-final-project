@@ -1,0 +1,11 @@
+discord Dice rolling program
+
+if a message with the appropriate command indicator is sent check its command and run the command associated with it
+
+for the dice rolling bot this would be collecting the number of dice to roll and the value of the dice 
+
+then it would splice that into a list and remove any unneeded parts like the command indicator and the d 
+
+then use the random library and genorate a random integer from 1 to the max roll of the dice
+
+then add this number to the embed to track it and add it to a total number 

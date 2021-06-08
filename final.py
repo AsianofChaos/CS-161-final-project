@@ -3,11 +3,14 @@
 #here is a link to the discord that i did all my testing in https://discord.gg/HA8RAB4j you should be able to use all the commands if the bot is up
 
 
+
 import discord
 from discord.ext import commands
 import random
-import math
+
+
 client = commands.Bot(command_prefix = '==') # creates the client(aka the bot) and assignes anything with '==' infornt of it as a command
+
 
 @client.event      # on the event of on_ready(on startup) it will send the message that the bot is online
 async def on_ready():   #creates a function that gets call on ready
@@ -30,28 +33,28 @@ async def version(message):
     await botspam.send('test') 
 
 #function recursion
-@client.command(name = 'factorial')
-async def version(message):
-    botspam = client.get_channel(851701508776525844)
-    integer = message.content
-    def factorial(intnumber):
-        if intnumber == 1:
-            return 1
-        else:
-            return(intnumber * factorial(intnumber - 1))
-        
-    await botspam.send(factorial(integer))  #this gives an error something to do with the asyncronus nature of the bot dont really know how to fix it rn
-
-
-
-#def factorial(intnumber):
+#@client.command(name = 'factorial')
+#async def version(message):
+    #botspam = client.get_channel(851701508776525844)
+    #integer = message.content
+    #def factorial(intnumber):
         #if intnumber == 1:
             #return 1
         #else:
             #return(intnumber * factorial(intnumber - 1))
+        
+    #await botspam.send(factorial(integer))  #couldnt get this to work in time
+
+
+
+#def factorial(intnumber):   #makes a function
+        #if intnumber == 1:   #checks if the number is 1
+            #return 1 #if it is the factorial is 1
+        #else:  #if its not 1 than it has a factorial
+            #return(intnumber * factorial(intnumber - 1))  
 
 #integer = int(input('please input an integer:'))
-#print(factorial(integer),'is the factorial of',integer) #this makes the bot have many an error but it does technicaly work as an example of function recursion if you want to use it just uncomment it
+#print(factorial(integer),'is the factorial of',integer) 
 
 
 @client.event
@@ -75,7 +78,23 @@ async def on_message(message):
         await botspam.send(embed = embed)  #sends the embed
 
 
- 
+#class thisisatestingclass:
+
+     #hight = 20
+     #length = 30
+     #width = 40 
+
+
+     #def example(self):
+         #print(example)
+#print(thisisatestingclass.hight)
+#print(thisisatestingclass.length)
+#print(thisisatestingclass.width)
+
+#print(thisisatestingclass.__dict__)
+#print(thisisatestingclass.__doc__)
+#print(thisisatestingclass.example)
+
 
 #this is what runs the bot, the long string is the bot token this is what makes this program the bot and not just a program.
-client.run('ODUxNjg4NTY1NzIwNzQzOTQ2.YL76yQ.rYY5wTJwEaZtLaeDxiKScdB2TB4') 
+client.run('ODUxNjg4NTY1NzIwNzQzOTQ2.YL76yQ.mWtpQ8bxtQ_EPUODk17fVhE0JA8') 

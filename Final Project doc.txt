@@ -9,3 +9,7 @@ then it would splice that into a list and remove any unneeded parts like the com
 then use the random library and genorate a random integer from 1 to the max roll of the dice
 
 then add this number to the embed to track it and add it to a total number 
+
+
+
+In the syllabus you said it was possible to work on the homeworks after the final, would you allow me to do that, i have most of them almost done just didnt have enough time to finish them. 

@@ -1,9 +1,12 @@
 #joshua Isakson
 #6/8/2021
+#here is a link to the discord that i did all my testing in https://discord.gg/HA8RAB4j you should be able to use all the commands if the bot is up
+
 
 import discord
 from discord.ext import commands
 import random
+import math
 client = commands.Bot(command_prefix = '==') # creates the client(aka the bot) and assignes anything with '==' infornt of it as a command
 
 @client.event      # on the event of on_ready(on startup) it will send the message that the bot is online
@@ -26,45 +29,32 @@ async def version(message):
     botspam = client.get_channel(851701508776525844)
     await botspam.send('test') 
 
-@client.command(name = 'roll')
-async def roll(message):
-    botspam = client.get_channel(851701508776525844)
-    content = message.content 
-    spliced = content.split()
-    spliced.remove('!')
-    spliced.remove('d')
-    embed = discord.Embed(title = "Your rolls are:",color = 0x00ff00)
-    dicenum = int(spliced[0])
-    diceval = int(spliced[1])
-    total = 0
-    while dicenum>0:
-        randnum = random.randint(1,diceval)
-        total = total+randnum
-        embed.add_field(name = 'Roll:',value = randnum,inline = False)
-        dicenum -= 1
-    embed.add_field(name = 'Total Roll:',value = total,inline = False)
-    await botspam.send(embed = embed)
+
+
+
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('!'):
-        botspam = client.get_channel(851701508776525844)
-        content = message.content 
-        spliced = content.split()
-        spliced.remove('!')
-        spliced.remove('d')
-        embed = discord.Embed(title = "Your rolls are:",color = 0x00ff00)
-        dicenum = int(spliced[0])
-        diceval = int(spliced[1])
-        total = 0
-        while dicenum>0:
-            randnum = random.randint(1,diceval)
-            total = total+randnum
-            embed.add_field(name = 'Roll:',value = randnum,inline = False)
-            dicenum -= 1
-        embed.add_field(name = 'Total Roll:',value = total,inline = False)
-        await botspam.send(embed = embed)
+    if message.content.startswith('!'):   #if the message starts with "!" the bot will assume its a dice roll
+        botspam = client.get_channel(851701508776525844)    
+        content = message.content    #this gets the content of the message such as '4 d 4'
+        spliced = content.split()   #splits the content into a list
+        spliced.remove('!')    # removes the inital !
+        spliced.remove('d')   # removes the useless d
+        embed = discord.Embed(title = "Your rolls are:",color = 0x00ff00) # creates the discord embed
+        dicenum = int(spliced[0])  #gets the number of dice out of the list
+        diceval = int(spliced[1])  #gets the number of side out of the list
+        total = 0                  # this is the initial value of all the rolls together
+        while dicenum>0:  #loop runs while the number of dice left is greater than 0
+            randnum = random.randint(1,diceval) #gets the random number from 1 to the number of sides on the dice
+            total = total+randnum      # adds the random number to the overall value
+            embed.add_field(name = 'Roll:',value = randnum,inline = False) #adds a field every time a dice gets rolled and adds the number
+            dicenum -= 1           #removes a dice every time one gets rolled
+        embed.add_field(name = 'Total Roll:',value = total,inline = False) #adds the total roll to the embed
+        await botspam.send(embed = embed)  #sends the embed
 
 
+ 
 
-client.run('ODUxNjg4NTY1NzIwNzQzOTQ2.YL76yQ.cUIf2KevBWKaR6wrKIjqtPra-iI')
+#this is what runs the bot, the long string is the bot token this is what makes this program the bot and not just a program.
+client.run('ODUxNjg4NTY1NzIwNzQzOTQ2.YL76yQ.cUIf2KevBWKaR6wrKIjqtPra-iI') 

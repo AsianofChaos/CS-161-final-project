@@ -29,8 +29,29 @@ async def version(message):
     botspam = client.get_channel(851701508776525844)
     await botspam.send('test') 
 
+#function recursion
+@client.command(name = 'factorial')
+async def version(message):
+    botspam = client.get_channel(851701508776525844)
+    integer = message.content
+    def factorial(intnumber):
+        if intnumber == 1:
+            return 1
+        else:
+            return(intnumber * factorial(intnumber - 1))
+        
+    await botspam.send(factorial(integer))  #this gives an error something to do with the asyncronus nature of the bot dont really know how to fix it rn
 
 
+
+#def factorial(intnumber):
+        #if intnumber == 1:
+            #return 1
+        #else:
+            #return(intnumber * factorial(intnumber - 1))
+
+#integer = int(input('please input an integer:'))
+#print(factorial(integer),'is the factorial of',integer) #this makes the bot have many an error but it does technicaly work as an example of function recursion if you want to use it just uncomment it
 
 
 @client.event
@@ -57,4 +78,4 @@ async def on_message(message):
  
 
 #this is what runs the bot, the long string is the bot token this is what makes this program the bot and not just a program.
-client.run('ODUxNjg4NTY1NzIwNzQzOTQ2.YL76yQ.cUIf2KevBWKaR6wrKIjqtPra-iI') 
+client.run('ODUxNjg4NTY1NzIwNzQzOTQ2.YL76yQ.rYY5wTJwEaZtLaeDxiKScdB2TB4') 
